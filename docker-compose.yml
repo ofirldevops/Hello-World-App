@@ -7,7 +7,10 @@ services:
     depends_on:
       - mongo
     environment:
-      - MONGO_URL_-=mongodb://mongo:27017/mydatabase
+      # Pass the MongoDB connection string to the app
+      - MONGO_URL=mongodb://mongo:27017/mydatabase
+    depends_on:
+      - mongo
     mongo:
       image: mongo-latest
       ports:

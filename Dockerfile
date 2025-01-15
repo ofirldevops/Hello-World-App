@@ -1,19 +1,22 @@
 # Use an official Node.js runtime as a parent image
 FROM node:14-alpine
 
-# Set working directory
+# Set working directory inside the container
 WORKDIR /usr/src/app
 
 # COPY package files and install depenencies
 COPY package*.json ./
 RUN npm install
 
-# Bundle app source code
+# Bundle app source code - Copy the rest of your application code
 COPY . .
 
-# Expose port 3000 and run the application
+# Expose port 3000 for the application
 EXPOSE 3000
+
+# Define the command to run your application
 CMD [ "npm", "start" ]
+
 
 
 
