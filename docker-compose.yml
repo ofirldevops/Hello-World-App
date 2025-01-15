@@ -5,16 +5,16 @@ services:
     ports:
       - "3000:3000"
     environment:
-      # Pass the MongoDB connection string to the app
       - MONGO_URL=mongodb://mongo:27017/mydatabase
     depends_on:
       - mongo
-    mongo:
-      image: mongo-latest
-      ports:
-        - "27017:27017"
-      volumes:
-        - mongo-data:/data/db
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
 
 volumes:
   mongo-data:
+
