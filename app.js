@@ -28,7 +28,7 @@ app.get('/about', (req, res) => {
 });
 
 // JSON API endpoint
-app.get('/api/data', (req, res) {
+app.get('/api/data', (req, res) => {
 	res.json({ message: 'This is some data' });
 });
 
