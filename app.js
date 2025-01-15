@@ -5,7 +5,7 @@ const app = express();
 const port = 3000;
 
 // MongoDB connection string from environment variable or default
-const mongoURL = process.env.MONGO_URL || mongodb://localhost:27017/mydatabase';
+const mongoURL = process.env.MONGO_URL || 'mongodb://localhost:27017/mydatabase';
 mongoose.connect(mongoURL, {
         useNewUrlParser: true,
         useUnifiedTopology: true
