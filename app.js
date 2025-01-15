@@ -1,14 +1,24 @@
-const http = require('http');
+const express = require('express');
+const app = express();
 const port = 3000;
 
-const requestHandler = (request, response) => {
-	response.end('Hello World!');
-}
+//serve static files from a "public" directory
+app.use(express.static('public'));
 
-const server = http.createServer(requestHandler);
-server.listen(port, (err) => {
-	if (err) {
-		return console.loc('Error:', err);
-	}
+app.get('/', (req,res) => {
+	res.send('Hello World!');
+});
+
+app.get('/about', (req,res) => {
+	res.send('About Page');
+});
+
+//JSON API endpoint
+app.get('/api/data', (req, res) {
+	res.json({ message: 'This is some data' });
+});
+
+
+app.listen(port, () => {
 	console.log('Server listening on port ${port}');
 });
