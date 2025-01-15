@@ -4,8 +4,6 @@ services:
     build: .
     ports:
       - "3000:3000"
-    depends_on:
-      - mongo
     environment:
       # Pass the MongoDB connection string to the app
       - MONGO_URL=mongodb://mongo:27017/mydatabase
