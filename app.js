@@ -9,10 +9,8 @@ const mongoURL = process.env.MONGO_URL || 'mongodb://localhost:27017/mydatabase'
 mongoose.connect(mongoURL, {
         useNewUrlParser: true,
         useUnifiedTopology: true
-}).then(() => {
-        console.log('Connected to MongoDB');
-}).catch(err => {
-        console.error('MongoDB connection error:', err);
+}).then(() => console.log('Connected to MongoDB'))
+	.catch(err => console.error('MongoDB connection error:', err));
 
 
 // // Serve static files from a "public" directory
@@ -36,5 +34,3 @@ app.get('/api/data', (req, res) => {
 app.listen(port, () => {
 	console.log('Server listening on port ${port}');
 });
-
-
